@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Profile</title>
+</head>
+<body>
+    <h1>Update Profile</h1>
+    <form th:action="@{/profile/update}" method="post" enctype="multipart/form-data">
+        <div class="mb-3">
+            <label for="fullname" class="form-label">Full Name</label>
+            <input type="text" class="form-control" id="fullname" th:field="${user.fullname}">
+        </div>
+        <div class="mb-3">
+            <label for="phone" class="form-label">Phone</label>
+            <input type="text" class="form-control" id="phone" th:field="${user.phone}">
+        </div>
+        <div class="mb-3">
+            <label for="image" class="form-label">Image</label>
+            <input type="file" class="form-control" id="image" name="image">
+            <img th:if="${user.imagePath}" th:src="@{${user.imagePath}}" alt="Profile Image" width="200" class="mt-2">
+        </div>
+        <button type="submit" class="btn btn-primary">Update</button>
+    </form>
+</body>
+</html>
